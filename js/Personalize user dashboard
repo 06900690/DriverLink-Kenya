@@ -14,8 +14,17 @@
 
 <header class="navbar">
 
-    <div class="logo">
-        🚗 DriversLink <span>Kenya</span>
+<div class="welcome">
+
+    <h1 id="welcomeMessage">
+        Welcome to DriversLink Kenya
+    </h1>
+
+    <p id="accountMessage">
+        Your transport connection platform.
+    </p>
+
+</div>
     </div>
 
     <nav>
@@ -182,7 +191,29 @@
     </p>
 
 </footer>
+<script>
 
+const savedUser = localStorage.getItem("driversLinkUser");
+
+const loggedIn = localStorage.getItem("driversLinkLoggedIn");
+
+if (!savedUser || loggedIn !== "true") {
+
+    window.location.href = "login.html";
+
+} else {
+
+    const user = JSON.parse(savedUser);
+
+    document.getElementById("welcomeMessage").textContent =
+        "Welcome, " + user.name + " 👋";
+
+    document.getElementById("accountMessage").textContent =
+        "Account type: " + user.accountType;
+
+}
+
+</script>
 
 </body>
 </html>
