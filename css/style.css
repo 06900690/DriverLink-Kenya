@@ -1,3 +1,7 @@
+/* ==============================
+   GLOBAL
+============================== */
+
 * {
     margin: 0;
     padding: 0;
@@ -5,18 +9,33 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: #f5f7fa;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f7f9;
     color: #222;
 }
 
+a {
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/* ==============================
+   NAVIGATION
+============================== */
+
 .navbar {
-    height: 70px;
+    min-height: 70px;
     background: #0b1f33;
     color: white;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     padding: 0 7%;
 }
 
@@ -37,27 +56,62 @@ nav {
 
 nav a {
     color: white;
-    text-decoration: none;
+    font-size: 15px;
 }
 
-.btn {
-    background: #20c997;
-    padding: 10px 18px;
-    border-radius: 6px;
+nav a:hover {
+    color: #20c997;
 }
+
+
+/* ==============================
+   BUTTONS
+============================== */
+
+.btn,
+.primary-btn {
+    background: #20c997;
+    color: white;
+
+    padding: 11px 20px;
+
+    border-radius: 6px;
+
+    border: none;
+
+    display: inline-block;
+}
+
+.btn:hover,
+.primary-btn:hover {
+    background: #18a97f;
+}
+
+
+/* ==============================
+   HERO
+============================== */
 
 .hero {
     min-height: 550px;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     text-align: center;
-    background: #0b1f33;
+
+    background:
+        linear-gradient(
+            rgba(5, 20, 35, 0.88),
+            rgba(5, 20, 35, 0.88)
+        );
+
     color: white;
 }
 
 .hero-content {
-    max-width: 750px;
+    max-width: 800px;
     padding: 30px;
 }
 
@@ -78,23 +132,24 @@ nav a {
     gap: 15px;
 }
 
-.primary-btn,
-.secondary-btn {
-    padding: 13px 25px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.primary-btn {
-    background: #20c997;
-    color: white;
-}
-
 .secondary-btn {
     border: 1px solid white;
     color: white;
+
+    padding: 12px 25px;
+
+    border-radius: 6px;
 }
+
+.secondary-btn:hover {
+    background: white;
+    color: #0b1f33;
+}
+
+
+/* ==============================
+   FEATURES
+============================== */
 
 .features {
     padding: 70px 7%;
@@ -108,15 +163,20 @@ nav a {
 
 .cards {
     display: grid;
+
     grid-template-columns: repeat(4, 1fr);
+
     gap: 20px;
 }
 
 .card {
     background: white;
+
     padding: 30px 20px;
+
     border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0,0,0,.08);
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
 }
 
 .card h3 {
@@ -125,30 +185,285 @@ nav a {
 
 .card p {
     color: #666;
+
     line-height: 1.6;
 }
 
+
+/* ==============================
+   REGISTER / LOGIN
+============================== */
+
+.register-section {
+    min-height: calc(100vh - 70px);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 40px 20px;
+}
+
+.register-container {
+    width: 100%;
+    max-width: 450px;
+
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.register-container h1 {
+    text-align: center;
+
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+
+    color: #777;
+
+    margin-bottom: 30px;
+}
+
+.register-container label {
+    display: block;
+
+    margin-top: 15px;
+
+    margin-bottom: 7px;
+
+    font-weight: bold;
+}
+
+.register-container input,
+.register-container select {
+    width: 100%;
+
+    padding: 13px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 6px;
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+.register-container input:focus,
+.register-container select:focus {
+    border-color: #20c997;
+}
+
+.register-container button {
+    width: 100%;
+
+    margin-top: 25px;
+
+    padding: 13px;
+
+    background: #20c997;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 6px;
+
+    font-size: 16px;
+
+    font-weight: bold;
+}
+
+.register-container button:hover {
+    background: #18a97f;
+}
+
+.login-link {
+    text-align: center;
+
+    margin-top: 20px;
+
+    color: #666;
+}
+
+.login-link a {
+    color: #20c997;
+
+    font-weight: bold;
+}
+
+
+/* ==============================
+   DASHBOARD
+============================== */
+
+.dashboard {
+    min-height: calc(100vh - 130px);
+
+    padding: 50px 7%;
+}
+
+.welcome {
+    margin-bottom: 35px;
+}
+
+.welcome h1 {
+    font-size: 32px;
+
+    color: #0b1f33;
+
+    margin-bottom: 10px;
+}
+
+.welcome p {
+    color: #666;
+}
+
+
+/* Dashboard cards */
+
+.dashboard-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.dashboard-card {
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+
+    transition: 0.2s;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.dashboard-card .icon {
+    font-size: 35px;
+
+    margin-bottom: 15px;
+}
+
+.dashboard-card h2 {
+    font-size: 20px;
+
+    margin-bottom: 10px;
+
+    color: #0b1f33;
+}
+
+.dashboard-card p {
+    color: #666;
+
+    line-height: 1.6;
+
+    margin-bottom: 20px;
+}
+
+.dashboard-card button {
+    border: none;
+
+    background: #20c997;
+
+    color: white;
+
+    padding: 10px 17px;
+
+    border-radius: 5px;
+
+    font-weight: bold;
+}
+
+.dashboard-card button:hover {
+    background: #18a97f;
+}
+
+
+/* ==============================
+   FOOTER
+============================== */
+
 footer {
     background: #0b1f33;
+
     color: white;
+
     text-align: center;
+
     padding: 25px;
 }
 
-@media (max-width: 800px) {
+
+/* ==============================
+   MOBILE
+============================== */
+
+@media (max-width: 900px) {
+
+    .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 15px 20px;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    nav {
+        gap: 15px;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
     .cards {
         grid-template-columns: 1fr;
     }
 
-    .hero h1 {
-        font-size: 40px;
+    .dashboard {
+        padding: 35px 20px;
     }
 
-    .navbar {
-        padding: 0 20px;
+    .dashboard-grid {
+        grid-template-columns: 1fr;
     }
 
-    nav {
-        gap: 10px;
+    .register-container {
+        padding: 25px 20px;
     }
 }
