@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Driving Jobs - DriversLink Kenya</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header class="navbar">
+
+    <div class="logo">
+        🚗 DriversLink <span>Kenya</span>
+    </div>
+
+
+    <nav>
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+        <a href="driver-profile.html">
+            My Profile
+        </a>
+
+        <a href="login.html">
+            Logout
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<main class="dashboard">
+
+
+    <div class="welcome">
+
+        <h1>
+            Driving Jobs
+        </h1>
+
+        <p>
+            Find driving opportunities available on DriversLink Kenya.
+        </p>
+
+    </div>
+
+
+
+    <!-- SEARCH -->
+
+    <div class="job-search">
+
+        <input
+            type="text"
+            id="searchJob"
+            placeholder="Search jobs by location or job type..."
+        >
+
+    </div>
+
+
+
+    <!-- JOB LIST -->
+
+    <div id="jobList" class="job-list">
+
+
+        <div class="job-card">
+
+            <div>
+
+                <h2>
+                    Personal Driver
+                </h2>
+
+                <p>
+                    📍 Nairobi
+                </p>
+
+                <p>
+                    💰 KSh 30,000 - 40,000 per month
+                </p>
+
+                <p>
+                    🕐 Full Time
+                </p>
+
+                <p>
+                    Looking for an experienced personal driver.
+                </p>
+
+            </div>
+
+
+            <button
+                onclick="applyJob('Personal Driver')">
+
+                Apply Now
+
+            </button>
+
+        </div>
+
+
+
+        <div class="job-card">
+
+            <div>
+
+                <h2>
+                    Delivery Driver
+                </h2>
+
+                <p>
+                    📍 Kiambu
+                </p>
+
+                <p>
+                    💰 KSh 25,000 - 35,000 per month
+                </p>
+
+                <p>
+                    🕐 Full Time
+                </p>
+
+                <p>
+                    Delivery company looking for reliable drivers.
+                </p>
+
+            </div>
+
+
+            <button
+                onclick="applyJob('Delivery Driver')">
+
+                Apply Now
+
+            </button>
+
+        </div>
+
+
+
+        <div class="job-card">
+
+            <div>
+
+                <h2>
+                    Taxi Driver
+                </h2>
+
+                <p>
+                    📍 Nairobi
+                </p>
+
+                <p>
+                    💰 KSh 20,000 - 30,000 per month
+                </p>
+
+                <p>
+                    🕐 Flexible
+                </p>
+
+                <p>
+                    Driver needed for daily taxi operations.
+                </p>
+
+            </div>
+
+
+            <button
+                onclick="applyJob('Taxi Driver')">
+
+                Apply Now
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+
+</main>
+
+
+
+<footer>
+
+    <p>
+        © 2026 DriversLink Kenya. All rights reserved.
+    </p>
+
+</footer>
+
+
+
+<script>
+
+
+function applyJob(jobName) {
+
+    const user =
+        localStorage.getItem("driversLinkUser");
+
+
+    if (!user) {
+
+        alert("Please register before applying for jobs.");
+
+        window.location.href =
+            "register.html";
+
+        return;
+
+    }
+
+
+    alert(
+        "Application submitted for: "
+        + jobName
+    );
+
+}
+
+
+
+const searchInput =
+document.getElementById("searchJob");
+
+
+searchInput.addEventListener("keyup", function() {
+
+    const search =
+        this.value.toLowerCase();
+
+
+    const jobs =
+        document.querySelectorAll(".job-card");
+
+
+    jobs.forEach(function(job) {
+
+        const text =
+            job.textContent.toLowerCase();
+
+
+        if (text.includes(search)) {
+
+            job.style.display = "flex";
+
+        } else {
+
+            job.style.display = "none";
+
+        }
+
+    });
+
+});
+
+
+</script>
+
+
+</body>
+
+</html>
