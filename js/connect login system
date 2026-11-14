@@ -88,6 +88,45 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
 
 });
 
+<script>
+
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const username = document.getElementById("loginUser").value;
+    const password = document.getElementById("loginPassword").value;
+
+    const savedUser = localStorage.getItem("driversLinkUser");
+
+    if (!savedUser) {
+
+        alert("No account found. Please register first.");
+
+        window.location.href = "register.html";
+
+        return;
+    }
+
+    const user = JSON.parse(savedUser);
+
+    if (
+        (username === user.email || username === user.phone) &&
+        password === user.password
+    ) {
+
+        localStorage.setItem("driversLinkLoggedIn", "true");
+
+        window.location.href = "dashboard.html";
+
+    } else {
+
+        alert("Incorrect email/phone or password.");
+
+    }
+
+});
+
 </script>
 
 </body>
