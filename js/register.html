@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Register - DriversLink Kenya</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        🚗 DriversLink <span>Kenya</span>
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="login.html">Login</a>
+    </nav>
+
+</header>
+
+
+<section class="register-section">
+
+    <div class="register-container">
+
+        <h1>Create Your Account</h1>
+
+        <p class="subtitle">
+            Join DriversLink Kenya
+        </p>
+
+
+        <form id="registerForm">
+
+            <label>Full Name</label>
+
+            <input
+                type="text"
+                id="fullname"
+                placeholder="Enter your full name"
+                required
+            >
+
+
+            <label>Phone Number</label>
+
+            <input
+                type="tel"
+                id="phone"
+                placeholder="07XXXXXXXX"
+                required
+            >
+
+
+            <label>Email Address</label>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                required
+            >
+
+
+            <label>Password</label>
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Create a password"
+                required
+            >
+
+
+            <label>Account Type</label>
+
+            <select id="accountType" required>
+
+                <option value="">
+                    Select account type
+                </option>
+
+                <option value="driver">
+                    Driver
+                </option>
+
+                <option value="owner">
+                    Vehicle Owner
+                </option>
+
+                <option value="customer">
+                    Customer
+                </option>
+
+            </select>
+
+
+            <button type="submit">
+                Create Account
+            </button>
+
+        </form>
+
+
+        <p class="login-link">
+            Already have an account?
+            <a href="login.html">Login here</a>
+        </p>
+
+    </div>
+
+</section>
+
+
+<script>
+
+document.getElementById("registerForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const name = document.getElementById("fullname").value;
+    const accountType = document.getElementById("accountType").value;
+
+    alert(
+        "Welcome to DriversLink Kenya, " +
+        name +
+        "! Your account type is " +
+        accountType +
+        "."
+    );
+
+});
+
+</script>
+
+</body>
+</html>
