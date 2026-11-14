@@ -67,9 +67,9 @@
                 Manage your personal information and account.
             </p>
 
-            <button>
-                View Profile
-            </button>
+            <a href="driver-profile.html" class="primary-btn">
+    View Profile
+</a>
 
         </div>
 
