@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Driver Profile - DriversLink Kenya</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header class="navbar">
+
+    <div class="logo">
+        🚗 DriversLink <span>Kenya</span>
+    </div>
+
+    <nav>
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+        <a href="login.html">
+            Logout
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<main class="register-section">
+
+
+<div class="register-container">
+
+    <h1>
+        Driver Profile
+    </h1>
+
+    <p class="subtitle">
+        Create your professional driver profile
+    </p>
+
+
+
+    <form id="driverForm">
+
+
+        <label>
+            Full Name
+        </label>
+
+        <input
+            type="text"
+            id="driverName"
+            placeholder="Enter your full name"
+            required
+        >
+
+
+
+        <label>
+            Phone Number
+        </label>
+
+        <input
+            type="tel"
+            id="driverPhone"
+            placeholder="07XXXXXXXX"
+            required
+        >
+
+
+
+        <label>
+            County
+        </label>
+
+        <select id="county" required>
+
+            <option value="">
+                Select your county
+            </option>
+
+            <option>Nairobi</option>
+            <option>Murang'a</option>
+            <option>Kiambu</option>
+            <option>Machakos</option>
+            <option>Nyeri</option>
+            <option>Kirinyaga</option>
+            <option>Embu</option>
+            <option>Meru</option>
+            <option>Nakuru</option>
+            <option>Mombasa</option>
+            <option>Kisumu</option>
+            <option>Kakamega</option>
+            <option>Bungoma</option>
+            <option>Uasin Gishu</option>
+            <option>Other</option>
+
+        </select>
+
+
+
+        <label>
+            Years of Driving Experience
+        </label>
+
+        <input
+            type="number"
+            id="experience"
+            min="0"
+            placeholder="e.g. 5"
+            required
+        >
+
+
+
+        <label>
+            Driving Licence Category
+        </label>
+
+        <select id="licence" required>
+
+            <option value="">
+                Select licence category
+            </option>
+
+            <option>Category A</option>
+            <option>Category B</option>
+            <option>Category C</option>
+            <option>Category D</option>
+            <option>Category E</option>
+            <option>Category F</option>
+
+        </select>
+
+
+
+        <label>
+            Employment Status
+        </label>
+
+        <select id="availability" required>
+
+            <option value="">
+                Select availability
+            </option>
+
+            <option value="available">
+                Available for work
+            </option>
+
+            <option value="employed">
+                Currently employed
+            </option>
+
+            <option value="part-time">
+                Available part-time
+            </option>
+
+        </select>
+
+
+
+        <label>
+            About You
+        </label>
+
+        <textarea
+            id="bio"
+            rows="5"
+            placeholder="Tell employers about your driving experience..."
+        ></textarea>
+
+
+
+        <button type="submit">
+            Save Driver Profile
+        </button>
+
+
+    </form>
+
+
+
+    <p class="login-link">
+
+        <a href="dashboard.html">
+            ← Back to Dashboard
+        </a>
+
+    </p>
+
+
+</div>
+
+
+</main>
+
+
+
+<footer>
+
+    <p>
+        © 2026 DriversLink Kenya. All rights reserved.
+    </p>
+
+</footer>
+
+
+
+<script>
+
+const driverForm =
+document.getElementById("driverForm");
+
+
+driverForm.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+
+    const driverProfile = {
+
+        name:
+        document.getElementById("driverName").value,
+
+        phone:
+        document.getElementById("driverPhone").value,
+
+        county:
+        document.getElementById("county").value,
+
+        experience:
+        document.getElementById("experience").value,
+
+        licence:
+        document.getElementById("licence").value,
+
+        availability:
+        document.getElementById("availability").value,
+
+        bio:
+        document.getElementById("bio").value
+
+    };
+
+
+    localStorage.setItem(
+        "driversLinkDriverProfile",
+        JSON.stringify(driverProfile)
+    );
+
+
+    alert("Driver profile saved successfully!");
+
+    window.location.href = "dashboard.html";
+
+});
+
+</script>
+
+
+</body>
+
+</html>
