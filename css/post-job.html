@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Post a Driving Job - DriversLink Kenya</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header class="navbar">
+
+    <div class="logo">
+        🚗 DriversLink <span>Kenya</span>
+    </div>
+
+    <nav>
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+        <a href="jobs.html">
+            Find Jobs
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<main class="register-section">
+
+    <div class="register-container">
+
+        <h1>
+            Post a Driving Job
+        </h1>
+
+        <p class="subtitle">
+            Find the right driver for your vehicle or business.
+        </p>
+
+
+        <form id="jobForm">
+
+
+            <label>
+                Job Title
+            </label>
+
+            <input
+                type="text"
+                id="jobTitle"
+                placeholder="e.g. Personal Driver"
+                required
+            >
+
+
+            <label>
+                Location
+            </label>
+
+            <select id="jobLocation" required>
+
+                <option value="">
+                    Select location
+                </option>
+
+                <option>Nairobi</option>
+                <option>Kiambu</option>
+                <option>Murang'a</option>
+                <option>Machakos</option>
+                <option>Nakuru</option>
+                <option>Mombasa</option>
+                <option>Kisumu</option>
+                <option>Nyeri</option>
+                <option>Other</option>
+
+            </select>
+
+
+            <label>
+                Salary
+            </label>
+
+            <input
+                type="text"
+                id="salary"
+                placeholder="e.g. KSh 30,000 - 40,000"
+                required
+            >
+
+
+            <label>
+                Employment Type
+            </label>
+
+            <select id="employmentType" required>
+
+                <option value="">
+                    Select employment type
+                </option>
+
+                <option>Full Time</option>
+                <option>Part Time</option>
+                <option>Contract</option>
+                <option>Flexible</option>
+
+            </select>
+
+
+            <label>
+                Driver Requirements
+            </label>
+
+            <textarea
+                id="requirements"
+                rows="5"
+                placeholder="Describe the experience, licence category and other requirements..."
+                required
+            ></textarea>
+
+
+            <label>
+                Job Description
+            </label>
+
+            <textarea
+                id="description"
+                rows="5"
+                placeholder="Describe the job..."
+                required
+            ></textarea>
+
+
+            <button type="submit">
+                Publish Job
+            </button>
+
+
+        </form>
+
+
+        <p class="login-link">
+
+            <a href="dashboard.html">
+                ← Back to Dashboard
+            </a>
+
+        </p>
+
+    </div>
+
+</main>
+
+
+
+<footer>
+
+    <p>
+        © 2026 DriversLink Kenya. All rights reserved.
+    </p>
+
+</footer>
+
+
+
+<script>
+
+document.getElementById("jobForm").addEventListener(
+    "submit",
+    function(event) {
+
+        event.preventDefault();
+
+
+        const job = {
+
+            id: Date.now(),
+
+            title:
+            document.getElementById("jobTitle").value,
+
+            location:
+            document.getElementById("jobLocation").value,
+
+            salary:
+            document.getElementById("salary").value,
+
+            type:
+            document.getElementById("employmentType").value,
+
+            requirements:
+            document.getElementById("requirements").value,
+
+            description:
+            document.getElementById("description").value
+
+        };
+
+
+        let jobs =
+            JSON.parse(
+                localStorage.getItem("driversLinkJobs")
+            ) || [];
+
+
+        jobs.push(job);
+
+
+        localStorage.setItem(
+            "driversLinkJobs",
+            JSON.stringify(jobs)
+        );
+
+
+        alert("Job published successfully!");
+
+
+        window.location.href = "jobs.html";
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>
